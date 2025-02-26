@@ -1,5 +1,6 @@
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -104,8 +105,14 @@ public class Password {
      */
     public static HashMap<String, Boolean> checkPasswordsList(ArrayList<String> passwords) {
 
-        // Code here
-
+        if (passwords != null){
+            HashMap<String, Boolean> passwordHashMap = new HashMap<>();
+            for (int i=0; i< passwords.size(); i++){
+                String password_i = passwords.get(i);
+                passwordHashMap.put(password_i, isStrongPassword(password_i));
+            }
+            return passwordHashMap;
+        }
         return null;
     }
 
@@ -123,7 +130,28 @@ public class Password {
      */
     public static String generatePassword(int nbCar) {
 
-        // Code here
+        SecureRandom random = new SecureRandom();
+        int length = random.nextInt(21);
+        if (length >= 4){
+            List<Character> password = new ArrayList<>();
+            SecureRandom random1 = new SecureRandom();
+            int nb_upper_case = random1.nextInt(26);
+            Character majCharacter = (char) ('A' + nb_upper_case);
+            password.add(majCharacter);
+            SecureRandom random2 = new SecureRandom();
+            int nb_lower_case = random2.nextInt(26);
+            Character minCharacter = (char) ('A' + nb_lower_case);
+            password.add(minCharacter);
+            SecureRandom random3 = new SecureRandom();
+            int digit = random3.nextInt(10);
+            // Character char_digit = Character.valueOf(0);
+            // password.add(char_digit);
+
+
+        }
+        
+
+
 
         return null;
     }
