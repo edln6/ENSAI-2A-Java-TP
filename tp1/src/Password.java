@@ -40,10 +40,18 @@ public class Password {
      */
     public static String bruteForce6Digit(String targetHash) {
 
-        // Code here
-
-        return null;
-    }
+        int i = 0;
+        for ( ; ; ){
+            if (i <= 999999){
+                String number = String.format("%06d", i);
+                if (hashPassword(number).equals(targetHash)){
+                    return number;
+                }
+            i++;
+            } 
+            return null;
+        }
+        }
 
     /**
      * Checks if the given password is strong according to the following criteria:
