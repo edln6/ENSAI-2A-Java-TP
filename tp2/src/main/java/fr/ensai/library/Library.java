@@ -17,7 +17,7 @@ public class Library {
      * Constructs a new Library object.
      */
     public Library(String name, List<Book> books) {
-        this.name = isbn;
+        this.name = name;
         this.books = new ArrayList<>();
     }
 

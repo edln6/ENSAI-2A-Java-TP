@@ -14,5 +14,8 @@ public class Main {
                 423);
 
         System.out.println(fellowshipOfTheRing.toString());
+
+        Library mylibrary = new Library("MyLibrary");
+
     }
 }
