@@ -17,5 +17,28 @@ public class Main {
 
         Library mylibrary = new Library("MyLibrary");
 
+        mylibrary.loadBooksFromCSV("books.csv");
+
+
+        Magazine truc1 = new Magazine(
+            "issn1",
+            "titre1", 
+            0, 
+            2025, 
+            100);
+
+        mylibrary.addItem(truc1);
+
+        Magazine truc2 = new Magazine(
+            "issn2",
+            "titre2", 
+            0, 
+            2025, 
+            100);
+
+        mylibrary.addItem(truc2);
+
+        mylibrary.displayItems();
+
     }
 }

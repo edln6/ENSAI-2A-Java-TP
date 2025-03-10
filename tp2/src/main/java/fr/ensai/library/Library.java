@@ -3,6 +3,7 @@ package fr.ensai.library;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,32 +12,32 @@ import java.util.Map;
 public class Library {
     // Attributes
     private String name;
-    private List<Book> books;
+    private List<Item> items;
 
     /**
      * Constructs a new Library object.
      */
     public Library(String name) {
         this.name = name;
-        this.books = new ArrayList<>();
+        this.items = new ArrayList<>();
     }
 
     /**
-     * Adds a book to the Library.
+     * Adds an item to the Library.
      */
-    public void addBook(Book book) {
-        books.add(book);
+    public void addItem(Item item) {
+        items.add(item);
     }
 
     /**
      * Prints the books in the Library.
      */
-    public String displayBooks() {
-        if (books.isEmpty()) {
-            System.out.println("There are no books in the Library");
+    public void displayItems() {
+        if (items.isEmpty()) {
+            System.out.println("There are no items in the Library");
         } else {
-            for (Book book : books) {
-                System.out.println("In the library there is :", book.toString());
+            for (Item item : items) {
+                items.forEach(System.out::println);
             }
 
         }
@@ -72,13 +73,13 @@ public class Library {
                     // Check if author already exists in the map
                     Author author = authors.get(authorName);
                     if (author == null) {
-                        author = new Author(authorName);
+                        author = new Author(authorName, 25, "unknown");
                         authors.put(authorName, author);
                         System.out.println(author.toString());
                     }
                     Book book = new Book(isbn, title, author, year, pageCount);
 
-                    this.addIem(book);
+                    this.addItem(book);
                 }
             }
         } catch (
