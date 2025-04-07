@@ -32,7 +32,7 @@ public class CompetitionController {
      */
     @GetMapping("/delete/{id}")
     public String deleteCompetitionById(@PathVariable(value = "id") long id) {
-        Competition competition = CompetitionService.findById(id);
+        Competition competition = competitionService.findById(id);
         if (competition != null) {
             competitionService.deleteById(id);
         }
